@@ -8,9 +8,15 @@ const socket= new Server(httpServer, {
     }
 })
 
-socket.on("connection", (socket)=> {
-    console.log(socket)
-})
+// socket.on("connection", (socket)=> {
+//     console.log(socket)
+// })
+
+socket.on("connection", (socket) => {
+    socket.on("user-message", (message) => {
+      socket.emit("message", message);
+    });
+  });
 
 httpServer.listen(3000, ()=>{
     console.log("server is connected")

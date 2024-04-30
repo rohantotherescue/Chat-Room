@@ -1,0 +1,10 @@
+version: "1"
+services:
+  meme-server-1:
+    build:
+      dockerfile: Dockerfile
+      context: .
+  meme-server-2:
+    build:
+      dockerfile: Dockerfile
+      context: .

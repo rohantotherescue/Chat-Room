@@ -1,18 +1,26 @@
-const socket = io();
+const socket = io("http://localhost:8000");
       const sendBtn = document.getElementById("sendBtn");
       const messageInput = document.getElementById("message");
       const allMessages = document.getElementById("messages");
 
+
+      // when you recieve message through the socket, the message is rendered on the screen
       socket.on("message", (message) => {
         const p = document.createElement("p");
         p.innerText = message;
         allMessages.appendChild(p);
       });
 
+      // when you click on the button, that message you entered is rendered on the screen
       sendBtn.addEventListener("click", (e) => {
         const message = messageInput.value;
         console.log(message);
-        socket.emit("user-message", message);
+
+        const p = document.createElement("p");
+        p.innerText = message;
+        allMessages.appendChild(p);
+
+        socket.emit("user-message", message); // that message is sent through the socket here
       });
 
 

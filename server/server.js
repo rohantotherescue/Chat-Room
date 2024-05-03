@@ -27,6 +27,6 @@ app.get("/", (req, res) => {
 
 const PORT = 3000; //process.env.PORT ||
 
-httpServer.listen(PORT, ()=>{
-    console.log("server is connected on localhost:${PORT}")
+httpServer.listen(3000, ()=>{
+    console.log("server is connected on localhost:3000")
 })

@@ -1,4 +1,4 @@
-const socket = io("http://localhost:8000");
+const socket = io("http://localhost:3000");
       const sendBtn = document.getElementById("sendBtn");
       const messageInput = document.getElementById("message");
       const allMessages = document.getElementById("messages");
@@ -16,9 +16,9 @@ const socket = io("http://localhost:8000");
         const message = messageInput.value;
         console.log(message);
 
-        const p = document.createElement("p");
-        p.innerText = message;
-        allMessages.appendChild(p);
+        // const p = document.createElement("p");
+        // p.innerText = message;
+        // allMessages.appendChild(p);
 
         socket.emit("user-message", message); // that message is sent through the socket here
       });
